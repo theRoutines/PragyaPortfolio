@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@theme {
+  --color-sand-dune: #E2C799;
+  --color-pine-teal: #0F3D3E;
+  --color-pale-oak: #F5EFE6;
+  --color-dark-teal: #082C2D;
+  
+  --font-sans: "Inter", "sans-serif";
+}
+
+@layer base {
+  :root {
+    --sand-dune: #E2C799;
+    --pine-teal: #0F3D3E;
+    --pale-oak: #F5EFE6;
+    --dark-teal: #082C2D;
+  }
+
+  * {
+    @apply border-pine-teal/10;
+  }
+
+  body {
+    @apply bg-sand-dune text-pine-teal font-sans overflow-x-hidden;
+    background-color: var(--sand-dune);
+    color: var(--pine-teal);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply py-24 px-6 md:px-12 lg:px-24;
+  }
+
+  .btn-primary {
+    @apply bg-pine-teal text-sand-dune px-8 py-3 rounded-full font-bold transition-all hover:bg-dark-teal hover:scale-105 active:scale-95;
+  }
+
+  .card {
+    @apply bg-pale-oak rounded-2xl shadow-lg border border-pine-teal/5 p-6;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-sand-dune;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-pine-teal/30 rounded-full transition-all hover:bg-pine-teal/50;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
