@@ -64,7 +64,7 @@ function App() {
       <footer className="bg-dark-teal py-12 px-6">
         <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="text-center md:text-left">
-            <h2 className="text-pale-oak text-3xl font-black tracking-tighter mb-2">ANIKET SHUKLA</h2>
+            <h2 className="text-pale-oak text-3xl font-black tracking-tighter mb-2">Pragya Singh</h2>
             <p className="text-pale-oak/40 text-sm font-medium tracking-widest uppercase italic">
               Building the future, one pixel at a time.
             </p>

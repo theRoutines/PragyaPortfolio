@@ -26,7 +26,7 @@ const ContactTerminal = () => {
   /* Boot */
   useEffect(() => {
     addLine("CORE-SYSTEM v2.1 INITIALIZED");
-    addLine("Type 'connect aniket' to establish secure link");
+    addLine("Type 'connect pragya singh' to establish secure link");
   }, []);
 
 
@@ -35,7 +35,7 @@ const ContactTerminal = () => {
     addLine(`> ${cmd}`);
 
     if (step === "connect") {
-      if (cmd.toLowerCase() === "connect aniket") {
+      if (cmd.toLowerCase() === "connect pragya singh") {
         addLine("Establishing secure connection...");
         setTimeout(() => {
           addLine("Connection established ✔");
@@ -43,7 +43,7 @@ const ContactTerminal = () => {
           setStep("name");
         }, 800);
       } else {
-        addLine("Invalid command. Use: connect aniket");
+        addLine("Invalid command. Use: connect pragya singh");
       }
     }
 
@@ -194,7 +194,7 @@ const ContactTerminal = () => {
 
           {/* FOOTER */}
           <div className="px-6 py-3 text-[10px] text-pale-oak/20 tracking-widest border-t border-white/5">
-            NODE: ANIKET_CORE · STATUS: ACTIVE · LATENCY: 42ms
+            NODE: PRAGYA_CORE · STATUS: ACTIVE · LATENCY: 42ms
           </div>
         </div>
       </div>
