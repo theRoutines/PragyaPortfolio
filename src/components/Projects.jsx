@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
-import { Github, Calendar, ArrowRight, ArrowLeft } from "lucide-react";
+import { Github, ExternalLink, Calendar, ArrowRight, ArrowLeft } from "lucide-react";
 
 /* 🎨 Tech Colors */
 const techColors = {
@@ -8,41 +8,49 @@ const techColors = {
   Node: "bg-green-100 text-green-600",
   Mapbox: "bg-purple-100 text-purple-600",
   PostgreSQL: "bg-indigo-100 text-indigo-600",
-  TypeScript: "bg-blue-200 text-blue-800",
-  D3: "bg-orange-100 text-orange-600",
-  "Next.js": "bg-gray-200 text-gray-800",
-  Supabase: "bg-emerald-100 text-emerald-600",
   Tailwind: "bg-cyan-100 text-cyan-600",
+  Java: "bg-white text-red-600",
+  DoublyLinkedList: "bg-cyan-800 text-cyan-600",
+  HashMap: "bg-cyan-100 text-cyan-600",
 };
 
 /* 📦 Project Data */
 const projectData = [
   {
     name: "Sawaari",
-    description:
-"A comprehensive ride-sharing platform with real-time tracking, dynamic pricing, and secure payments. Built to handle scalable bookings with optimized route matching and live driver updates. Focused on delivering a seamless user experience with high performance and reliability under load.",
+    problem:
+      "Urban commuting lacks real-time coordination, efficient route matching, and transparent pricing.",
+    solution:
+      "Built a scalable ride-sharing platform with live tracking, dynamic pricing, and optimized driver allocation.",
     tech: ["React", "Node", "Mapbox", "PostgreSQL"],
     image: "/SawaariLogo.png",
     date: "2024",
-    link: "https://github.com/theRoutines/Sawaari.git",
+    github: "https://github.com/theRoutines/Sawaari.git",
+    live: "https://sawaari-nine.vercel.app/",
   },
   {
     name: "LRU Cache",
-    description:
-"An interactive LRU cache visualizer designed to demonstrate cache eviction strategies through real-time animations. Helps users understand memory optimization concepts with clear hit/miss indicators and step-by-step transitions, making complex algorithms intuitive.",
-    tech: ["React", "TypeScript", "D3"],
+    problem:
+      "Understanding cache eviction strategies is difficult due to lack of visualization.",
+    solution:
+      "Developed an interactive visualizer with real-time animations to demonstrate LRU operations step-by-step.",
+    tech: ["Java", "Doubly LinkedList", "HashMap"],
     image: "/LRUlogo.png",
     date: "2023",
-    link: "https://github.com/theRoutines/LRU-Cache-Visualizer.git",
+    github: "https://github.com/theRoutines/LRU-Cache-Visualizer.git",
+    live: "#",
   },
   {
     name: "Notes Pro",
-    description:
-"An advanced note-taking application with markdown support, real-time collaboration, and cloud synchronization. Designed for productivity with a clean UI, fast performance, and seamless multi-device access, enabling users to organize and share ideas efficiently.",
+    problem:
+      "Users struggle with organizing and syncing notes efficiently across devices.",
+    solution:
+      "Created a collaborative note-taking app with markdown support and real-time cloud sync.",
     tech: ["Next.js", "Supabase", "Tailwind"],
     image: "/NotesLogo.png",
     date: "2024",
-    link: "https://github.com/theRoutines/ChromeExtension.git",
+    github: "https://github.com/theRoutines/ChromeExtension.git",
+    live: "#",
   },
 ];
 
@@ -60,27 +68,15 @@ const Projects = () => {
 
       const offset = i - index;
 
-      if (offset === 0) {
-        gsap.to(card, {
-          x: 0,
-          scale: 1,
-          opacity: 1,
-          filter: "blur(0px)",
-          zIndex: 10,
-          duration: 0.8,
-          ease: "power3.out",
-        });
-      } else {
-        gsap.to(card, {
-          x: offset * 160,
-          scale: 0.85,
-          opacity: 0.5,
-          filter: "blur(6px)",
-          zIndex: 10 - Math.abs(offset),
-          duration: 0.8,
-          ease: "power3.out",
-        });
-      }
+      gsap.to(card, {
+        x: offset * 190,
+        scale: offset === 0 ? 1 : 0.85,
+        opacity: offset === 0 ? 1 : 0.5,
+        filter: offset === 0 ? "blur(0px)" : "blur(6px)",
+        zIndex: 10 - Math.abs(offset),
+        duration: 0.8,
+        ease: "power3.out",
+      });
     });
   };
 
@@ -95,10 +91,15 @@ const Projects = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-sand-dune relative overflow-hidden">
-      <div className="relative w-full max-w-6xl h-[75vh] flex items-center justify-center">
+    <section className="min-h-screen flex flex-col items-center justify-center bg-sand-dune relative overflow-hidden">
+      <h2 className="text-5xl md:text-7xl font-bold text-pine-teal tracking-tight">
+              Project Demonstration
+            </h2>
 
-        {/* Cards */}
+            <div className="w-[30%] h-1 bg-pine-teal rounded-full mb-20" />
+      
+      <div className="relative w-full max-w-7xl h-[60vh] flex items-center justify-center">
+
         {projectData.map((project, idx) => (
           <div
             key={idx}
@@ -112,7 +113,7 @@ const Projects = () => {
 
               {/* LEFT */}
               <div className="p-10 flex flex-col justify-between">
-                <div className="space-y-6">
+                <div className="space-y-5">
 
                   <div className="flex items-center gap-2 text-pine-teal/40 text-xs uppercase tracking-widest">
                     <Calendar size={16} />
@@ -123,12 +124,24 @@ const Projects = () => {
                     {project.name}
                   </h2>
 
-                  <p className="text-pine-teal/60 text-lg leading-relaxed">
-                    {project.description}
+                  {/* PROBLEM */}
+                  <p className="text-sm text-red-500 font-semibold">
+                    Problem
+                  </p>
+                  <p className="text-pine-teal/90 text-base leading-relaxed">
+                    {project.problem}
                   </p>
 
-                  {/* TECH STACK */}
-                  <div className="flex flex-wrap gap-2">
+                  {/* SOLUTION */}
+                  <p className="text-sm text-green-600 font-semibold">
+                    Solution
+                  </p>
+                  <p className="text-pine-teal/90 text-base leading-relaxed">
+                    {project.solution}
+                  </p>
+
+                  {/* TECH */}
+                  <div className="flex flex-wrap gap-2 pt-2">
                     {project.tech.map((t, i) => (
                       <span
                         key={i}
@@ -141,59 +154,65 @@ const Projects = () => {
                   </div>
                 </div>
 
-                {/* 🚀 GITHUB BUTTON */}
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-3 rounded-full 
-                  bg-pine-teal text-sand-dune font-semibold 
-                  shadow-md hover:shadow-xl 
-                  hover:scale-105 transition-all duration-300 group"
-                >
-                  <Github
-                    size={18}
-                    className="group-hover:rotate-12 group-hover:scale-110 transition-all"
-                  />
-                  View Code
-                </a>
+                {/* BUTTONS */}
+                <div className="flex gap-4 mt-6">
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-5 py-3 rounded-full 
+                    bg-pine-teal text-sand-dune font-semibold 
+                    hover:scale-105 transition"
+                  >
+                    <Github size={18} />
+                    Code
+                  </a>
+
+                  <a
+                    href={project.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-5 py-3 rounded-full 
+                    border border-pine-teal text-pine-teal 
+                    hover:bg-pine-teal hover:text-sand-dune 
+                    transition"
+                  >
+                    <ExternalLink size={18} />
+                    Live
+                  </a>
+                </div>
               </div>
 
-              {/* RIGHT */}
-              <div className="flex items-center justify-center p-10 bg-pine-teal/5 relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-tr " />
-
+              {/* RIGHT (FIXED IMAGE) */}
+              <div className="flex items-center justify-center p-10 rounded-lg">
                 <img
                   src={project.image}
                   alt={project.name}
-                  className="w-full h-full object-contain z-10 
-                  group-hover:scale-110 transition duration-700"
+                  className="max-w-full max-h-full object-contain 
+                  group-hover:scale-105 transition duration-500 mb-21"
                 />
               </div>
+
             </div>
           </div>
         ))}
 
-        {/* ⬅️➡️ NAVIGATION */}
+        {/* NAV */}
         <div className="absolute inset-0 z-20 flex items-center justify-between px-6 pointer-events-none">
 
-          {/* Prev */}
           <button
             onClick={prevProject}
             className="pointer-events-auto w-14 h-14 rounded-full border border-pine-teal/20 
             flex items-center justify-center text-pine-teal 
-            hover:bg-pine-teal hover:text-sand-dune 
-            backdrop-blur-md transition-all duration-300 hover:scale-110"
+            hover:bg-pine-teal hover:text-sand-dune transition"
           >
             <ArrowLeft />
           </button>
 
-          {/* Next */}
           <button
             onClick={nextProject}
             className="pointer-events-auto w-14 h-14 rounded-full bg-pine-teal text-sand-dune 
-            flex items-center justify-center shadow-lg 
-            hover:scale-110 transition-all duration-300"
+            flex items-center justify-center shadow-lg transition"
           >
             <ArrowRight />
           </button>

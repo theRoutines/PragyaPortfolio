@@ -1,7 +1,9 @@
-import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { Github, Linkedin, FileText, Mail } from 'lucide-react';
-import CircularText from './CircularText';
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { Github, Linkedin, FileText, Mail } from "lucide-react";
+import CircularText from "./CircularText";
+import TextType from './TextType';
+
 
 const Hero = () => {
   const sectionRef = useRef(null);
@@ -16,7 +18,7 @@ const Hero = () => {
         stagger: 0.1,
         duration: 1,
         ease: "power3.out",
-        delay: 0.5
+        delay: 0.5,
       });
 
       // Profile image entrance
@@ -25,7 +27,7 @@ const Hero = () => {
         scale: 0.8,
         duration: 1.2,
         ease: "back.out(1.7)",
-        delay: 0.8
+        delay: 0.8,
       });
 
       // Slow floating animation for image
@@ -34,7 +36,7 @@ const Hero = () => {
         duration: 2.5,
         repeat: -1,
         yoyo: true,
-        ease: "power1.inOut"
+        ease: "power1.inOut",
       });
     }, sectionRef);
 
@@ -42,7 +44,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section 
+    <section
       ref={sectionRef}
       className="min-h-screen flex items-center justify-center bg-sand-dune section-padding relative overflow-hidden"
     >
@@ -55,34 +57,54 @@ const Hero = () => {
         <div className="space-y-6 text-center lg:text-left">
           <div className="space-y-2">
             <h2 className="hero-text-item text-pine-teal/80 text-xl md:text-2xl font-medium tracking-tight">
-              Hello, I'm
+              Hello, I'm{" "}
+              <span className="font-bold text-pine-teal">Pragya Singh</span>
             </h2>
-            <h1 className="hero-text-item text-6xl md:text-8xl font-bold text-pine-teal tracking-tighter leading-none">
-               <br /> SHUKLA
-            </h1>
           </div>
+
+<TextType
+        text={[
+          `I’m a Full Stack Web Developer driven by curiosity and a constant desire to learn and evolve. I enjoy building scalable and user-focused applications while continuously exploring new technologies. My approach blends technical precision with creativity, allowing me to design solutions that are not just functional but also intuitive and engaging. I like to think differently—challenging conventional approaches to create smarter and more efficient systems. For me, development is not just about code, but about crafting meaningful digital experiences.`
+        ]}
+        typingSpeed={35}   // slower for readability
+        deletingSpeed={0}  // no deleting (important)
+        pauseDuration={999999} // basically never reset
+        showCursor
+        cursorCharacter="|"
+        className="hero-text-item text-lg md:text-xl text-pine-teal/90 max-w-xl leading-relaxed font-semibold"
+      />
+
           
-          <p className="hero-text-item text-lg md:text-xl text-pine-teal/70 max-w-xl leading-relaxed">
-            A passionate Full Stack Developer dedicated to building premium digital experiences that combine innovative design with robust engineering.
-          </p>
 
           <div className="hero-text-item flex flex-wrap justify-center lg:justify-start gap-4 pt-4">
-            <a 
-              href="/AniketShuklaCVFinal.pdf" 
+            <a
+              href="/PragySinghGeneralCV.pdf"
               download
               className="btn-primary flex items-center gap-2 group"
             >
-              <FileText size={20} className="group-hover:rotate-12 transition-transform" />
+              <FileText
+                size={20}
+                className="group-hover:rotate-12 transition-transform"
+              />
               Download Resume
             </a>
-            
+
             <div className="flex items-center gap-3">
               {[
-                { icon: <Github size={24} />, href: "https://github.com/theRoutines" },
-                { icon: <Linkedin size={24} />, href: "https://linkedin.com/in/aniketshuklacse" },
-                { icon: <Mail size={24} />, href: "mailto:aniketshukla933@gmail.com" }
+                {
+                  icon: <Github size={24} />,
+                  href: "https://github.com/theRoutines",
+                },
+                {
+                  icon: <Linkedin size={24} />,
+                  href: "https://www.linkedin.com/in/pragyasinghh/",
+                },
+                {
+                  icon: <Mail size={24} />,
+                  href: "mailto:aniketshukla933@gmail.com",
+                },
               ].map((social, idx) => (
-                <a 
+                <a
                   key={idx}
                   href={social.href}
                   target="_blank"
@@ -98,36 +120,31 @@ const Hero = () => {
 
         {/* Right Content - Image */}
         <div className="flex justify-center items-center">
-  <div className="relative w-64 h-64 md:w-96 md:h-96 flex items-center justify-center">
+          <div className="relative w-100 h-100 md:w-96 md:h-96 flex items-center justify-center">
+            {/* 🔥 Circular Text (POSITIONED AROUND IMAGE) */}
+            <div className="absolute inset-0 flex items-center justify-center scale-[3.4]">
+              <CircularText
+                text="SOFTWARE ENGINEER ✦ FULL STACK DEVELOPER ✦ PROBLEM SOLVER ✦ "
+                onHover="speeUp"
+                spinDuration={35}
+              />
+            </div>
 
-    {/* 🔥 Circular Text (POSITIONED AROUND IMAGE) */}
-    <div className="absolute inset-0 flex items-center justify-center scale-[3.4]">
-      <CircularText
-        text="SOFTWARE ENGINEER ✦ FULL STACK DEVELOPER ✦ PROBLEM SOLVER ✦ "
-        onHover="speeUp"
-        spinDuration={35}
-      />
-    </div>
+            {/* 🖼️ Image */}
+            <div ref={imageRef} className="relative w-full h-full ">
+              {/* Frame */}
+              <div className="absolute inset-0  rounded-[3rem] rotate-6 translate-x-4 translate-y-4" />
 
-    {/* 🖼️ Image */}
-    <div 
-      ref={imageRef}
-      className="relative w-full h-full "
-    >
-      {/* Frame */}
-      <div className="absolute inset-0  rounded-[3rem] rotate-6 translate-x-4 translate-y-4" />
-      
-      <div className="absolute inset-0  shadow-white overflow-hidden ">
-        <img 
-          src="/avatar.png" 
-          alt="Aniket Shukla" 
-          className="w-full h-full object-cover  hover:grayscale-0 transition-all duration-500 rounded-full"
-        />
-      </div>
-    </div>
-
-  </div>
-</div>
+              <div className="absolute inset-0  shadow-white overflow-hidden ">
+                <img
+                  src="/avatar.png"
+                  alt="Pragya Singh"
+                  className="w-full h-full object-cover  hover:grayscale-0 transition-all duration-500 rounded-full"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

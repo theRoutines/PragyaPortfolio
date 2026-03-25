@@ -9,23 +9,23 @@ const educationData = [
   {
     degree: "B.Tech in Computer Science & Engineering",
     school: "Lovely Professional University",
-    score: "8.50 CGPA",
+    score: "7.38 CGPA",
     location: "Phagwara, Punjab",
     duration: "2023 - 2027",
     description: "Specializing in software architecture and full-stack ecosystems. Actively involved in competitive coding and open-source contributions."
   },
   {
     degree: "Higher Secondary (XII)",
-    school: "Academic Global School",
-    score: "89%",
+    school: "RPM Academy",
+    score: "72%",
     location: "Gorakhpur, Uttar Pradesh",
     duration: "2021 - 2022",
     description: "Majored in Physics, Chemistry, and Mathematics. Developed strong logical foundations and early passion for programming."
   },
   {
     degree: "Secondary (X)",
-    school: "Little Flower School",
-    score: "96%",
+    school: "RPM Academy",
+    score: "84%",
     location: "Gorakhpur, UP",
     duration: "2019 - 2020",
     description: "Academic excellence across all disciplines, laying the groundwork for a career in engineering."

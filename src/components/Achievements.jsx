@@ -94,14 +94,14 @@ const Achievements = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 font-bold text-lg">
           <StatCard 
             icon={<Target size={36} />}
-            value="300"
+            value="200"
             suffix="+"
             label="Problems on LeetCode and GfG"
             delay={0.1}
           />
           <StatCard 
             icon={<Trophy size={36} />}
-            value="1500"
+            value="1400"
             label="LeetCode Rating"
             delay={0.2}
           />
@@ -109,7 +109,7 @@ const Achievements = () => {
             icon={<Star size={36} />}
             value="2"
             suffix="★"
-            label="CodeChef Star"
+            label="CODECHEF STAR"
             delay={0.3}
             className = "font-bold text-lg"
           />

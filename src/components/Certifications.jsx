@@ -3,12 +3,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, ExternalLink, Award, ShieldCheck } from "lucide-react";
 
 const certifications = [
-  { name: "Summer Training", logo: "/certificates/lpulogo.png", image: "/certificates/SummerTraining.png", issuer: "Lovely Professional University" },
-  { name: "IBM Full Stack Developer", logo: "/certificates/ibmlogo.png", image: "/certificates/BuildGenai.png", issuer: "IBM" },
-  { name: "Infosys Cert", logo: "/certificates/infosyslogo.png", image: "/certificates/PromptEngineer.png", issuer: "Infosys" },
+  { name: "Summer Training", logo: "/certificates/lpulogo.png", image: "/certificates/SummerTraining.jpeg", issuer: "Lovely Professional University" },
+  { name: "IBM Full Stack Developer", logo: "/certificates/ibmlogo.png", image: "/certificates/OS.png", issuer: "IBM" },
+  { name: "Infosys Cert", logo: "/certificates/infosyslogo.png", image: "/certificates/BuildGenai.png", issuer: "Infosys" },
   { name: "HackerRank Problem Solving", logo: "/certificates/hackerranklogo.png", image: "/certificates/ProblemSolving.png", issuer: "HackerRank" },
-  { name: "Computer Networks", logo: "/certificates/GoogleLogo.png", image: "/certificates/ComputerNetworks.png", issuer: "NPTEL" },
-  { name: "Operating Systems", logo: "/certificates/nptellogo.png", image: "/certificates/OS.png", issuer: "NPTEL" },
+  { name: "Computer Networks", logo: "/certificates/GoogleLogo.png", image: "/certificates/BitsBytes.png", issuer: "Google" },
+  { name: "Cloud Computing", logo: "/certificates/nptellogo.png", image: "/certificates/nptel.png", issuer: "NPTEL" },
 ];
 
 // 🔥 Animations

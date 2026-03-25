@@ -55,7 +55,7 @@ const IntroScene = ({ onComplete }) => {
           ref={textRef}
           className="text-6xl md:text-8xl font-bold text-pine-teal tracking-tighter mb-4"
         >
-          ANIKET SHUKLA
+          PRAGYA SINGH 
         </h1>
         <p 
           ref={subtitleRef}
