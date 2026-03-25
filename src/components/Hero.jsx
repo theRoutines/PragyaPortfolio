@@ -58,7 +58,7 @@ const Hero = () => {
               Hello, I'm
             </h2>
             <h1 className="hero-text-item text-6xl md:text-8xl font-bold text-pine-teal tracking-tighter leading-none">
-              ANIKET <br /> SHUKLA
+               <br /> SHUKLA
             </h1>
           </div>
           
@@ -104,7 +104,7 @@ const Hero = () => {
     <div className="absolute inset-0 flex items-center justify-center scale-[3.4]">
       <CircularText
         text="SOFTWARE ENGINEER ✦ FULL STACK DEVELOPER ✦ PROBLEM SOLVER ✦ "
-        onHover="speedUp"
+        onHover="speeUp"
         spinDuration={35}
       />
     </div>
@@ -112,16 +112,16 @@ const Hero = () => {
     {/* 🖼️ Image */}
     <div 
       ref={imageRef}
-      className="relative w-full h-full"
+      className="relative w-full h-full "
     >
       {/* Frame */}
-      <div className="absolute inset-0 border-2 border-pine-teal/10 rounded-[3rem] rotate-6 translate-x-4 translate-y-4" />
+      <div className="absolute inset-0  rounded-[3rem] rotate-6 translate-x-4 translate-y-4" />
       
-      <div className="absolute inset-0 bg-pale-oak rounded-[3rem] shadow-4xl shadow-white overflow-hidden ">
+      <div className="absolute inset-0  shadow-white overflow-hidden ">
         <img 
           src="/avatar.png" 
           alt="Aniket Shukla" 
-          className="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-500"
+          className="w-full h-full object-cover  hover:grayscale-0 transition-all duration-500 rounded-full"
         />
       </div>
     </div>
